@@ -6,7 +6,7 @@ MAINTAINER Bachue Zhou "http://github.com/bachue"
 ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update
-RUN apt-get install -y make wget
+RUN apt-get install -y build-essential wget
 
 RUN cd /root && \
     wget https://github.com/postmodern/ruby-install/archive/master.tar.gz && \
@@ -15,5 +15,6 @@ RUN cd /root && \
     cd .. && \
     rm -rf ruby-install-master master.tar.gz
 RUN ruby-install --system ruby
+RUN gem install bundler
 
 WORKDIR /root
