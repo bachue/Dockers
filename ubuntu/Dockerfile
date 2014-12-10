@@ -7,8 +7,8 @@ MAINTAINER Bachue Zhou "http://github.com/bachue"
 
 ADD sources.list /etc/apt/sources.list
 
-RUN apt-get update
-RUN apt-get install -y openssh-server vim build-essential samba
+RUN rm -rf /etc/apt/sources.list.d/*
+RUN apt-get update && apt-get install -y openssh-server vim build-essential samba man-db silversearcher-ag git
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:bachue' | chpasswd

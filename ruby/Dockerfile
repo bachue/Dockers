@@ -5,8 +5,8 @@ MAINTAINER Bachue Zhou "http://github.com/bachue"
 
 ADD sources.list /etc/apt/sources.list
 
-RUN apt-get update
-RUN apt-get install -y build-essential wget
+RUN rm -rf /etc/apt/sources.list.d/*
+RUN apt-get update && apt-get install -y build-essential wget
 
 RUN cd /root && \
     wget https://github.com/postmodern/ruby-install/archive/master.tar.gz && \
