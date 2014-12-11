@@ -8,7 +8,8 @@ MAINTAINER Bachue Zhou "http://github.com/bachue"
 ADD sources.list /etc/apt/sources.list
 
 RUN rm -rf /etc/apt/sources.list.d/*
-RUN apt-get update && apt-get install -y openssh-server vim build-essential samba man-db silversearcher-ag git command-not-found command-not-found-data
+RUN apt-get update && apt-get install -y openssh-server vim build-essential samba man-db silversearcher-ag git command-not-found command-not-found-data apt-file
+RUN apt-file update
 RUN mkdir /var/run/sshd
 RUN ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 
