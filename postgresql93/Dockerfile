@@ -5,8 +5,9 @@
 FROM ubuntu:trusty
 MAINTAINER Bachue Zhou "http://github.com/bachue"
 
-RUN apt-get update
-RUN apt-get install -y postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3 postgresql-plpython-9.3
+RUN apt-get update && \
+    apt-get install -y postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3 postgresql-plpython-9.3 --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/
 RUN echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
 RUN locale-gen en_US.UTF-8
 
