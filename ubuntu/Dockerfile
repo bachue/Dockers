@@ -11,14 +11,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/
 RUN apt-file update
 RUN mkdir /var/run/sshd
-RUN ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
-
-RUN git clone git://github.com/bachue/My-Git-Config.git /root/.gitconf && \
-    ln -s /root/.gitconf/.gitconfig /root/.gitconfig && \
-    ln -s /root/.gitconf/.gitignore_global /root/.gitignore_global
-
-RUN git clone git://github.com/bachue/GDB-Config.git /root/.gdbconf && \
-    ln -s /root/.gdbconf/gdbinit /root/.gdbinit
 
 RUN echo 'root:bachue' | chpasswd
 
@@ -27,6 +19,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 WORKDIR /root
 EXPOSE 22
-EXPOSE 445
 
-CMD /usr/sbin/sshd && bash
+COPY docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
