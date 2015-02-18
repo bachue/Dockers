@@ -23,8 +23,6 @@ else
     ln -s /root/.gdbconf/gdbinit /root/.gdbinit
 fi
 
-/usr/sbin/sshd
-
 cd /root
 
 exec "$@"
