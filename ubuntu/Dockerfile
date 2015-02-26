@@ -5,7 +5,15 @@ MAINTAINER Bachue Zhou "http://github.com/bachue"
 
 RUN rm -rf /etc/apt/sources.list.d/*
 RUN apt-get update && \
-    apt-get install -y openssh-client vim build-essential gdb man-db manpages-dev silversearcher-ag git command-not-found command-not-found-data apt-file --no-install-recommends && \
+    apt-get install -y openssh-client \
+                       ca-certificates \
+                       vim \
+                       git \
+                       gdb \
+                       build-essential \
+                       man-db manpages-dev \
+                       silversearcher-ag \
+                       command-not-found command-not-found-data apt-file --no-install-recommends && \
     rm -rf /var/lib/apt/lists/
 RUN apt-file update
 
