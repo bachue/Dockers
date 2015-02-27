@@ -12,6 +12,7 @@ RUN apt-get update && \
                        gdb \
                        build-essential \
                        man-db manpages-dev \
+                       wget \
                        silversearcher-ag \
                        command-not-found command-not-found-data apt-file --no-install-recommends && \
     rm -rf /var/lib/apt/lists/
