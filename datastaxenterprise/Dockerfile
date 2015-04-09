@@ -10,7 +10,7 @@ RUN chmod +x /data/installer.run /docker-entrypoint.sh
 
 RUN rm -rf /etc/apt/sources.list.d/* && \
     apt-get update && \
-    apt-get install -y libjna-java && \
+    apt-get install -y libjna-java python2.7 && \
     /data/installer.run --install_type simple --listen_address 127.0.0.1 --rpc_address 0.0.0.0 \
       --node_type search --mode unattended && \
     rm -rf /var/lib/apt/lists/ /tmp/* /data
