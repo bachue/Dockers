@@ -3,6 +3,7 @@
 FROM ubuntu:trusty
 MAINTAINER Bachue Zhou "http://github.com/bachue"
 
+COPY sources.list /etc/apt/sources.list
 RUN rm -rf /etc/apt/sources.list.d/*
 RUN apt-get update && \
     apt-get install -y openssh-client \
